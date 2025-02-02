@@ -34,6 +34,7 @@ app.get('/sound/:name', (req, res) => {
     } else {
         res.send({'sound': '알수없음'});
     }
+    console.log(name);
 })
 
 
