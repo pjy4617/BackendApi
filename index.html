@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Node.js</title>
+</head>
+<body>
+    <h1 id="sound">Test</h1>
+    <input id="name" type="text" placeholder="입력하세요">
+    <button onclick="getSound()">API요청</button>
+    <script>
+        function getSound() {
+            const name = document.getElementById('name').value;
+            fetch(`http://localhost:3000/sound/${name}`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('sound').innerText = data.sound;
+                });
+        }
+    </script>
+</body>
+</html>
